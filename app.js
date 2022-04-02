@@ -6,6 +6,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const passport = require('passport');
 require('./config/passport')(passport);
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUI = require('swagger-ui-express');
 
 const authRoutes = require('./routes/authRoutes');
 const clothesRoutes = require('./routes/clothesRoutes');
@@ -27,6 +29,19 @@ app.use(express.json());
 app.use(cors({
   origin: true,
 }));
+
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      title: 'Smart wardrobe API',
+
+    }
+  },
+  apis: ['app.js', 'routes/*.js']
+};
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 app.use('/auth', authRoutes);
 app.use('/clothes', authenticate, clothesRoutes);

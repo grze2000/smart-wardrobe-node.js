@@ -101,8 +101,6 @@ exports.refreshToken = (req, res) => {
         return res.status(400).json({message: 'Invalid token'});
       }
 
-      console.log('User', user);
-
       const expirationDate = new Date(Date.now() + 1000*60*60*24*30);
       const accessToken = jwt.sign({
         id: user.id,
@@ -124,8 +122,6 @@ exports.refreshToken = (req, res) => {
         res.json({
           accessToken,
           refreshToken,
-          userId: user._id,
-          email: user.email,
         });
       });
     });
