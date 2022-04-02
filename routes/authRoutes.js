@@ -21,19 +21,22 @@ const tokenSchema = require('../schemas/tokenSchema');
  *              type: string
  *            password:
  *              type: string
+ *              format: password
  *    responses:
  *      200:
- *        schema:
- *          type: object
- *          properties:
- *            accessToken:
- *              type: string
- *            refreshToken:
- *              type: string
- *            userId:
- *              type: string
- *            email:
- *              type: string
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                accessToken:
+ *                  type: string
+ *                refreshToken:
+ *                  type: string
+ *                userId:
+ *                  type: string
+ *                email:
+ *                  type: string
  *  
  */
 router.post('/login', checkSchema(loginSchema), authController.login);
@@ -56,8 +59,10 @@ router.post('/login', checkSchema(loginSchema), authController.login);
  *              type: string
  *            password:
  *              type: string
+ *              format: password
  *            confirmPassword:
  *              type: string
+ *              format: password
  *    responses:
  *      201:
  *        description: Account has been created  
@@ -80,13 +85,15 @@ router.post('/register', checkSchema(registerSchema), authController.register);
  *              type: string
  *    responses:
  *      200:
- *        schema:
- *          type: object
- *          properties:
- *            accessToken:
- *              type: string
- *            refreshToken:
- *              type: string
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                accessToken:
+ *                  type: string
+ *                refreshToken:
+ *                  type: string
  */
 router.post('/refresh-token', checkSchema(tokenSchema), authController.refreshToken);
 

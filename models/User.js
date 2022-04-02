@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
+const clothesSchema = require('./ClothesSchema');
 
 const userSchema = new Schema({
   username: {
@@ -15,9 +16,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  clothes: [{
-    name: String,
-  }],
+  clothes: [clothesSchema],
 });
 
 userSchema.pre('save', function(next) {

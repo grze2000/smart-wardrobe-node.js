@@ -8,10 +8,12 @@ const enumController = require('../controllers/enumController');
  *    tags: [Enums]
  *    responses:
  *      200:
- *        schema:
- *          type: array
- *          items:
- *            type: string
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                type: string
  */
 router.get('/colors', enumController.getColors);
 
@@ -22,10 +24,12 @@ router.get('/colors', enumController.getColors);
  *    tags: [Enums]
  *    responses:
  *      200:
- *        schema:
- *          type: array
- *          items:
- *            type: string
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                type: string
  */
 router.get('/material-thickness', enumController.getMaterialThickness);
 
@@ -36,10 +40,12 @@ router.get('/material-thickness', enumController.getMaterialThickness);
  *    tags: [Enums]
  *    responses:
  *      200:
- *        schema:
- *          type: array
- *          items:
- *            type: string
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                type: string
  */
 router.get('/clothes-types', enumController.getClothesTypes);
 
