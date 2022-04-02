@@ -11,6 +11,7 @@ const swaggerUI = require('swagger-ui-express');
 
 const authRoutes = require('./routes/authRoutes');
 const clothesRoutes = require('./routes/clothesRoutes');
+const enumRoutes = require('./routes/enumRoutes');
 const { authenticate } = require('./config/authenticate');
 
 const mongooseOptions = {
@@ -32,10 +33,23 @@ app.use(cors({
 
 const swaggerOptions = {
   swaggerDefinition: {
+    openapi: '3.0.1',
     info: {
       title: 'Smart wardrobe API',
-
-    }
+    },
+    basePath: '/',
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT',
+        }
+      }
+    },
+    security: [{
+      bearerAuth: []
+    }]
   },
   apis: ['app.js', 'routes/*.js']
 };
@@ -44,6 +58,7 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 app.use('/auth', authRoutes);
+app.use('/enums', enumRoutes);
 app.use('/clothes', authenticate, clothesRoutes);
 
 const PORT = process.env.PORT || 3000;
