@@ -8,6 +8,14 @@ const passport = require('passport');
 require('./config/passport')(passport);
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUI = require('swagger-ui-express');
+const http = require('http');
+const server = http.createServer(app);
+const io = require('socket.io')(server, {
+  cors: {
+    origin: true,
+  }
+})
+require('./socket.io/socketIO')(io);
 
 const authRoutes = require('./routes/authRoutes');
 const clothesRoutes = require('./routes/clothesRoutes');
@@ -64,6 +72,6 @@ app.use('/clothes', authenticate, clothesRoutes);
 app.use('/device-tokens', authenticate, deviceTokensRoutes);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`[${new Date().toLocaleString()}] Listening on ${PORT}`);
 })
