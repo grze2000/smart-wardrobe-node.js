@@ -7,7 +7,7 @@ const config = passport => {
   options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
   options.secretOrKey = process.env.SECRET;
   passport.use(new JwtStrategy(options, (jwtPayload, done) => {
-    User.findOne({_id: jwtPayload.id}, {password: 0}, (err, user) => {
+    User.findOne({_id: jwtPayload.id}, (err, user) => {
       if(err) return done(err, false);
       if(user) {
         return done(null, user);

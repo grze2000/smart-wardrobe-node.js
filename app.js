@@ -12,6 +12,7 @@ const swaggerUI = require('swagger-ui-express');
 const authRoutes = require('./routes/authRoutes');
 const clothesRoutes = require('./routes/clothesRoutes');
 const enumRoutes = require('./routes/enumRoutes');
+const deviceTokensRoutes = require('./routes/deviceTokensRoutes');
 const { authenticate } = require('./config/authenticate');
 
 const mongooseOptions = {
@@ -60,6 +61,7 @@ app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 app.use('/auth', authRoutes);
 app.use('/enums', enumRoutes);
 app.use('/clothes', authenticate, clothesRoutes);
+app.use('/device-tokens', authenticate, deviceTokensRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

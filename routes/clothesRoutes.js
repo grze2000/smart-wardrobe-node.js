@@ -13,32 +13,42 @@ const clothesSchema = require('../schemas/clothesSchema');
  *        content:
  *          application/json:
  *            schema:
- *              type: object
- *              properties:
- *                'name':
- *                  type: string
- *                description:
- *                  type: string
- *                'type':
- *                  type: string
- *                materialThickness:
- *                  type: string
- *                colors:
- *                  type: array
- *                  items:
+ *              type: array
+ *              items:
+ *                type: object
+ *                properties:
+ *                  _id:
  *                    type: string
- *                inWash:
- *                  type: boolean
- *                inWardrobe:
- *                  type: boolean
- *                purchaseDate:
- *                  type: string
- *                  format: date-time
- *                value:
- *                  type: number
- *                  format: float
- *                tagId:
- *                  type: string
+ *                  'name':
+ *                    type: string
+ *                  description:
+ *                    type: string
+ *                  'type':
+ *                    type: string
+ *                  materialThickness:
+ *                    type: string
+ *                  colors:
+ *                    type: array
+ *                    items:
+ *                      type: string
+ *                  inWash:
+ *                    type: boolean
+ *                  inWardrobe:
+ *                    type: boolean
+ *                  purchaseDate:
+ *                    type: string
+ *                    format: date-time
+ *                  value:
+ *                    type: number
+ *                    format: float
+ *                  tagId:
+ *                    type: string
+ *                  createdAt:
+ *                    type: string
+ *                    format: date-time
+ *                  updatedAt:
+ *                    type: string
+ *                    format: date-time
  */
 router.get('/', clothesController.getClothes);
 
