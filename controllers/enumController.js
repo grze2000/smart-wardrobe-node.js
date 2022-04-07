@@ -1,3 +1,4 @@
+const { CLOTHES_STATUSES } = require("../enums/clothesStatuses");
 const { CLOTHES_TYPES } = require("../enums/clothesTypes");
 const { COLORS } = require("../enums/colors");
 const { MATERIAL_THICKNESS } = require("../enums/materialThickness");
@@ -12,4 +13,8 @@ exports.getMaterialThickness = (req, res) => {
 
 exports.getClothesTypes = (req, res) => {
   res.json(Object.values(CLOTHES_TYPES));
+}
+
+exports.getClothesStatuses = (req, res) => {
+  res.json(Object.values(CLOTHES_STATUSES));
 }

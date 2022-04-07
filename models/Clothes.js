@@ -24,14 +24,9 @@ const clothesSchema = new Schema({
     type: String,
     enum: Object.values(COLORS),
   }],
-  inWash: {
-    type: Boolean,
-    default: false,
-  },
-  inWardrobe: {
-    type: Boolean,
-    required: true,
-    default: true,
+  status: {
+    type: String,
+    enum: Object.values(COLORS),
   },
   purchaseDate: Date,
   value: {

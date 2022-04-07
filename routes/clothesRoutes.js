@@ -31,10 +31,8 @@ const clothesSchema = require('../schemas/clothesSchema');
  *                    type: array
  *                    items:
  *                      type: string
- *                  inWash:
- *                    type: boolean
- *                  inWardrobe:
- *                    type: boolean
+ *                  status:
+ *                    type: string
  *                  purchaseDate:
  *                    type: string
  *                    format: date-time
@@ -76,10 +74,8 @@ router.get('/', clothesController.getClothes);
  *              type: array
  *              items:
  *                type: string
- *            inWash:
- *              type: boolean
- *            inWardrobe:
- *              type: boolean
+ *            status:
+ *              type: string
  *            purchaseDate:
  *              type: string
  *            value:

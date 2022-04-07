@@ -1,3 +1,4 @@
+const { CLOTHES_STATUSES } = require("../enums/clothesStatuses");
 const { CLOTHES_TYPES } = require("../enums/clothesTypes");
 const { COLORS } = require("../enums/colors");
 const { MATERIAL_THICKNESS } = require("../enums/materialThickness");
@@ -54,15 +55,14 @@ module.exports = {
       errorMessage: 'Incorrect color',
     },
   },
-  inWash: {
+  status: {
     in: ['body'],
-    optional: { options: { nullable: true } },
-    isBoolean: {}
-  },
-  inWardrobe: {
-    in: ['body'],
-    optional: { options: { nullable: true } },
-    isBoolean: {}
+    custom: {
+      options: (value, { req }) => {
+        return Array.isArray(value) && value.every(x => Object.values(CLOTHES_STATUSES).includes(x));
+      },
+      errorMessage: 'Incorrect status',
+    },
   },
   purchaseDate: {
     in: ['body'],
