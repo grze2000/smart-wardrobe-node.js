@@ -8,8 +8,7 @@
     "esm": true
   },
   "scripts": {
-    "start": "ts-node app.ts",
-    "start:dev": "nodemon app.ts",
+    "start": "npx tsx watch app.ts",
     "build": "tsc"
   },
   "author": "Grzegorz Babiarz",
@@ -43,8 +42,6 @@
     "@typescript-eslint/parser": "^8.29.0",
     "eslint": "^9.24.0",
     "globals": "^16.0.0",
-    "nodemon": "^3.1.9",
-    "ts-node": "^10.9.2",
     "tsx": "^4.19.3",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.29.0"
