@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { IUser } from "../models/User";
+import { IUser } from "../models/User.js";
 import { matchedData, validationResult } from "express-validator";
-import { IClothes } from "../models/Clothes";
+import { IClothes } from "../models/Clothes.js";
 
 export const getClothes = (req: Request, res: Response) => {
   const user = req.user as IUser;

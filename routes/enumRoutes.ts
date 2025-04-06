@@ -4,7 +4,7 @@ import {
   getClothesTypes,
   getColors,
   getMaterialThickness,
-} from "../controllers/enumController";
+} from "../controllers/enumController.js";
 
 const enumsRoutes = Router();
 

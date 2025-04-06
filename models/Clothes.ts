@@ -1,8 +1,8 @@
 import mongoose, { Document, Schema } from "mongoose";
-import { CLOTHES_TYPES } from "../enums/clothesTypes";
-import { MATERIAL_THICKNESS } from "../enums/materialThickness";
-import { COLORS } from "../enums/colors";
-import { CLOTHES_STATUSES } from "../enums/clothesStatuses";
+import { CLOTHES_TYPES } from "../enums/clothesTypes.js";
+import { MATERIAL_THICKNESS } from "../enums/materialThickness.js";
+import { COLORS } from "../enums/colors.js";
+import { CLOTHES_STATUSES } from "../enums/clothesStatuses.js";
 
 export interface IClothes extends Document {
   _id?: string;

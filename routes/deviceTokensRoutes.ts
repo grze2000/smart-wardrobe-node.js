@@ -3,8 +3,8 @@ import {
   createDeviceToken,
   deleteDeviceToken,
   getDeviceTokens,
-} from "../controllers/deviceTokensController";
-import { deviceTokenSchema } from "../schemas/deviceTokenSchema";
+} from "../controllers/deviceTokensController.js";
+import { deviceTokenSchema } from "../schemas/deviceTokenSchema.js";
 import { checkSchema } from "express-validator";
 
 const deviceTokensRoutes = Router();

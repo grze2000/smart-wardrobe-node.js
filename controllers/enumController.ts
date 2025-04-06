@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { COLORS } from "../enums/colors";
-import { MATERIAL_THICKNESS } from "../enums/materialThickness";
-import { CLOTHES_TYPES } from "../enums/clothesTypes";
-import { CLOTHES_STATUSES } from "../enums/clothesStatuses";
+import { COLORS } from "../enums/colors.js";
+import { MATERIAL_THICKNESS } from "../enums/materialThickness.js";
+import { CLOTHES_TYPES } from "../enums/clothesTypes.js";
+import { CLOTHES_STATUSES } from "../enums/clothesStatuses.js";
 
 export const getColors = (req: Request, res: Response) => {
   res.json(Object.values(COLORS));

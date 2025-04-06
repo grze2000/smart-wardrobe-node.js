@@ -1,8 +1,8 @@
 import { CustomValidator, Schema } from "express-validator";
-import { CLOTHES_STATUSES } from "../enums/clothesStatuses";
-import { CLOTHES_TYPES } from "../enums/clothesTypes";
-import { COLORS } from "../enums/colors";
-import { MATERIAL_THICKNESS } from "../enums/materialThickness";
+import { CLOTHES_STATUSES } from "../enums/clothesStatuses.js";
+import { CLOTHES_TYPES } from "../enums/clothesTypes.js";
+import { COLORS } from "../enums/colors.js";
+import { MATERIAL_THICKNESS } from "../enums/materialThickness.js";
 
 const colorsValidator: CustomValidator = (value) => {
   return (

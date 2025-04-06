@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
-import { IUser } from "../models/User";
+import { IUser } from "../models/User.js";
 
 export const getDeviceTokens = (req: Request, res: Response) => {
   const user = req.user as IUser;

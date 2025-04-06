@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import WeatherLog, { IWeatherLog } from "../models/Watch";
+import WeatherLog, { IWeatherLog } from "../models/Watch.js";
 
 export const addWeatherLog = async (
   req: Request,

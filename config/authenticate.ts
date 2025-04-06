@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import passport from "passport";
-import { IUser } from "../models/User";
+import { IUser } from "../models/User.js";
 
 export const authenticate = (req: Request, res: Response, next: NextFunction) =>
   passport.authenticate(

@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { checkSchema } from "express-validator";
-import { clothesSchema } from "../schemas/clothesSchema";
-import { addClothes, getClothes } from "../controllers/clothesController";
+import { clothesSchema } from "../schemas/clothesSchema.js";
+import { addClothes, getClothes } from "../controllers/clothesController.js";
 
 const clothesRoutes = Router();
 

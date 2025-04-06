@@ -1,7 +1,7 @@
 import mongoose, { Document, Model, Schema } from "mongoose";
 import bcrypt from "bcrypt";
-import { clothesSchema, IClothes } from "./Clothes";
-import { deviceTokenSchema, IDeviceToken } from "./DeviceToken";
+import { clothesSchema, IClothes } from "./Clothes.js";
+import { deviceTokenSchema, IDeviceToken } from "./DeviceToken.js";
 
 export interface IUser extends Document {
   _id: string;

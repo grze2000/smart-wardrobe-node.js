@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { validationResult } from "express-validator";
-import User, { IUser, IUserMethods } from "../models/User";
-import RefreshToken, { IRefreshToken } from "../models/RefreshToken";
+import User, { IUser, IUserMethods } from "../models/User.js";
+import RefreshToken, { IRefreshToken } from "../models/RefreshToken.js";
 import jwt from "jsonwebtoken";
 import { Types } from "mongoose";
 

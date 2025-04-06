@@ -4,7 +4,7 @@ import {
   ExtractJwt,
   StrategyOptions,
 } from "passport-jwt";
-import User, { IUser } from "../models/User";
+import User, { IUser } from "../models/User.js";
 
 export const configurePassport = () => {
   const options: StrategyOptions = {

@@ -6,14 +6,14 @@ import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUI from "swagger-ui-express";
 import http from "http";
 import { Server as SocketIOServer } from "socket.io";
-import { configurePassport } from "./config/passport";
-import { authenticate } from "./config/authenticate";
-import authRoutes from "./routes/authRoutes";
-import enumsRoutes from "./routes/enumRoutes";
-import clothesRoutes from "./routes/clothesRoutes";
-import deviceTokensRoutes from "./routes/deviceTokensRoutes";
-import { configureSocketIO } from "./socket.io/socketIO";
-import weatherRoutes from "./routes/weatherRoutes";
+import { configurePassport } from "./config/passport.js";
+import { authenticate } from "./config/authenticate.js";
+import authRoutes from "./routes/authRoutes.js";
+import enumsRoutes from "./routes/enumRoutes.js";
+import clothesRoutes from "./routes/clothesRoutes.js";
+import deviceTokensRoutes from "./routes/deviceTokensRoutes.js";
+import { configureSocketIO } from "./socket.io/socketIO.js";
+import weatherRoutes from "./routes/weatherRoutes.js";
 
 const app = express();
 

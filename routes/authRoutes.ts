@@ -1,14 +1,14 @@
 import { Router } from "express";
 import { checkSchema } from "express-validator";
-import { loginSchema } from "../schemas/loginSchema";
-import { registerSchema } from "../schemas/registerSchema";
-import { tokenSchema } from "../schemas/tokenSchema";
+import { loginSchema } from "../schemas/loginSchema.js";
+import { registerSchema } from "../schemas/registerSchema.js";
+import { tokenSchema } from "../schemas/tokenSchema.js";
 import {
   login,
   refreshToken,
   register,
   revokeToken,
-} from "../controllers/authController";
+} from "../controllers/authController.js";
 
 const authRoutes = Router();
 

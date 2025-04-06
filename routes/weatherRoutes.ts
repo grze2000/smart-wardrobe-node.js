@@ -1,10 +1,10 @@
 import { Router } from "express";
 import { checkSchema } from "express-validator";
-import { weatherLogSchema } from "../schemas/weatherLogSchema";
+import { weatherLogSchema } from "../schemas/weatherLogSchema.js";
 import {
   addWeatherLog,
   getWeatherLogs,
-} from "../controllers/weatherController";
+} from "../controllers/weatherController.js";
 
 const weatherRoutes = Router();
 
