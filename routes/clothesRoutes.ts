@@ -1,7 +1,9 @@
-const router = require('express').Router();
-const { checkSchema } = require('express-validator');
-const clothesController = require('../controllers/clothesController');
-const clothesSchema = require('../schemas/clothesSchema');
+import { Router } from "express";
+import { checkSchema } from "express-validator";
+import { clothesSchema } from "../schemas/clothesSchema";
+import { addClothes, getClothes } from "../controllers/clothesController";
+
+const clothesRoutes = Router();
 
 /**
  * @swagger
@@ -48,7 +50,7 @@ const clothesSchema = require('../schemas/clothesSchema');
  *                    type: string
  *                    format: date-time
  */
-router.get('/', clothesController.getClothes);
+clothesRoutes.get("/", getClothes);
 
 /**
  * @swagger
@@ -84,6 +86,6 @@ router.get('/', clothesController.getClothes);
  *            tagId:
  *              type: string
  */
-router.post('/', checkSchema(clothesSchema), clothesController.addClothes);
+clothesRoutes.post("/", checkSchema(clothesSchema), addClothes);
 
-module.exports = router;
+export default clothesRoutes;

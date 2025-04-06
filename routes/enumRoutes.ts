@@ -1,6 +1,12 @@
-const router = require('express').Router();
-const enumController = require('../controllers/enumController');
-const { route } = require('./authRoutes');
+import { Router } from "express";
+import {
+  getClothesStatuses,
+  getClothesTypes,
+  getColors,
+  getMaterialThickness,
+} from "../controllers/enumController";
+
+const enumsRoutes = Router();
 
 /**
  * @swagger
@@ -16,7 +22,7 @@ const { route } = require('./authRoutes');
  *              items:
  *                type: string
  */
-router.get('/colors', enumController.getColors);
+enumsRoutes.get("/colors", getColors);
 
 /**
  * @swagger
@@ -32,7 +38,7 @@ router.get('/colors', enumController.getColors);
  *              items:
  *                type: string
  */
-router.get('/material-thickness', enumController.getMaterialThickness);
+enumsRoutes.get("/material-thickness", getMaterialThickness);
 
 /**
  * @swagger
@@ -48,7 +54,7 @@ router.get('/material-thickness', enumController.getMaterialThickness);
  *              items:
  *                type: string
  */
-router.get('/clothes-types', enumController.getClothesTypes);
+enumsRoutes.get("/clothes-types", getClothesTypes);
 
 /**
  * @swagger
@@ -64,6 +70,6 @@ router.get('/clothes-types', enumController.getClothesTypes);
  *              items:
  *                type: string
  */
-router.get('/clothes-statuses', enumController.getClothesStatuses);
+enumsRoutes.get("/clothes-statuses", getClothesStatuses);
 
-module.exports = router;
+export default enumsRoutes;

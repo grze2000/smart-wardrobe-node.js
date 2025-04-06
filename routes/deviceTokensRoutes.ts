@@ -1,7 +1,13 @@
-const router = require('express').Router();
-const { checkSchema } = require('express-validator');
-const deviceTokensController = require('../controllers/deviceTokensController');
-const deviceTokenSchema = require('../schemas/deviceTokenSchema');
+import { Router } from "express";
+import {
+  createDeviceToken,
+  deleteDeviceToken,
+  getDeviceTokens,
+} from "../controllers/deviceTokensController";
+import { deviceTokenSchema } from "../schemas/deviceTokenSchema";
+import { checkSchema } from "express-validator";
+
+const deviceTokensRoutes = Router();
 
 /**
  * @swagger
@@ -30,7 +36,7 @@ const deviceTokenSchema = require('../schemas/deviceTokenSchema');
  *                    type: string
  *                    format: date-time
  */
-router.get('/', deviceTokensController.getDeviceTokens);
+deviceTokensRoutes.get("/", getDeviceTokens);
 
 /**
  * @swagger
@@ -57,8 +63,7 @@ router.get('/', deviceTokensController.getDeviceTokens);
  *                  type: string
  *                  format: date-time
  */
-router.post('/', checkSchema(deviceTokenSchema), deviceTokensController.createDeviceToken);
-
+deviceTokensRoutes.post("/", checkSchema(deviceTokenSchema), createDeviceToken);
 
 /**
  * @swagger
@@ -72,6 +77,6 @@ router.post('/', checkSchema(deviceTokenSchema), deviceTokensController.createDe
  *      200:
  *        description: Success
  */
-router.delete('/:id', deviceTokensController.deleteDeviceToken);
+deviceTokensRoutes.delete("/:id", deleteDeviceToken);
 
-module.exports = router;
+export default deviceTokensRoutes;

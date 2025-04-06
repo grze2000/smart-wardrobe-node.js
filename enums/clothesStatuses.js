@@ -1,5 +1,0 @@
-exports.CLOTHES_STATUSES = {
-  IN_WARDROBE: 'IN_WARDROBE',
-  IN_WASH: 'IN_WASH',
-  IN_USE: 'IN_USE',
-}

@@ -1,9 +1,16 @@
-const router = require('express').Router();
-const { checkSchema } = require('express-validator');
-const loginSchema = require('../schemas/loginSchema');
-const authController = require('../controllers/authController');
-const registerSchema = require('../schemas/registerSchema');
-const tokenSchema = require('../schemas/tokenSchema');
+import { Router } from "express";
+import { checkSchema } from "express-validator";
+import { loginSchema } from "../schemas/loginSchema";
+import { registerSchema } from "../schemas/registerSchema";
+import { tokenSchema } from "../schemas/tokenSchema";
+import {
+  login,
+  refreshToken,
+  register,
+  revokeToken,
+} from "../controllers/authController";
+
+const authRoutes = Router();
 
 /**
  * @swagger
@@ -37,9 +44,9 @@ const tokenSchema = require('../schemas/tokenSchema');
  *                  type: string
  *                email:
  *                  type: string
- *  
+ *
  */
-router.post('/login', checkSchema(loginSchema), authController.login);
+authRoutes.post("/login", checkSchema(loginSchema), login);
 
 /**
  * @swagger
@@ -65,9 +72,9 @@ router.post('/login', checkSchema(loginSchema), authController.login);
  *              format: password
  *    responses:
  *      201:
- *        description: Account has been created  
+ *        description: Account has been created
  */
-router.post('/register', checkSchema(registerSchema), authController.register);
+authRoutes.post("/register", checkSchema(registerSchema), register);
 
 /**
  * @swagger
@@ -95,7 +102,7 @@ router.post('/register', checkSchema(registerSchema), authController.register);
  *                refreshToken:
  *                  type: string
  */
-router.post('/refresh-token', checkSchema(tokenSchema), authController.refreshToken);
+authRoutes.post("/refresh-token", checkSchema(tokenSchema), refreshToken);
 
 /**
  * @swagger
@@ -117,6 +124,6 @@ router.post('/refresh-token', checkSchema(tokenSchema), authController.refreshTo
  *      400:
  *        description: Invalid token
  */
-router.post('/revoke-token', checkSchema(tokenSchema), authController.revokeToken);
+authRoutes.post("/revoke-token", checkSchema(tokenSchema), revokeToken);
 
-module.exports = router;
+export default authRoutes;
