@@ -6,7 +6,6 @@ import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUI from "swagger-ui-express";
 import http from "http";
 import { Server as SocketIOServer } from "socket.io";
-
 import { configurePassport } from "./config/passport";
 import { authenticate } from "./config/authenticate";
 import authRoutes from "./routes/authRoutes";
@@ -14,6 +13,7 @@ import enumsRoutes from "./routes/enumRoutes";
 import clothesRoutes from "./routes/clothesRoutes";
 import deviceTokensRoutes from "./routes/deviceTokensRoutes";
 import { configureSocketIO } from "./socket.io/socketIO";
+import weatherRoutes from "./routes/weatherRoutes";
 
 const app = express();
 
@@ -80,6 +80,7 @@ app.use("/auth", authRoutes);
 app.use("/enums", enumsRoutes);
 app.use("/clothes", authenticate, clothesRoutes);
 app.use("/device-tokens", authenticate, deviceTokensRoutes);
+app.use("/weather-log", weatherRoutes);
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
